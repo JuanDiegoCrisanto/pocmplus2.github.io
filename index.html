@@ -16,6 +16,9 @@
             </fieldset>
         </div>
         <div>
+            <button id='sample-print-button'>Print sample</button>
+        </div>
+        <div>
             <!-- intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=http://test.com;S.android.intent.extra.SUBJECT=Test;end -->
             <br/>
             <br/>
@@ -34,6 +37,15 @@
             <button id="button-test-scan">Test scan programatically</button>
         </div>
         <script type="text/javascript">
+
+            document.getElementById('sample-print-button').addEventListener(
+                "click",
+                function(e){
+                    e.preventDefault();
+                    window.print();
+                }
+            )
+
             function clearResult(){
                 document.getElementById('form-action-result').innerHTML = "";
             }

@@ -7,25 +7,29 @@
         <div>
             <input type="text" id="scanned-value"/>
             <br/>
-            <button type="button" id="active-scanner">Activar Scanner</button>
             <br/>
             <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"> Sample Take a QR code </a>
             <br/>
+            <br/>
             <a href="intent://scan/#Intent;scheme=com.summi.scan;package=com.sunmi.sunmiqrcodescanner;end">Intent Link 1</a>
+            <br/>
             <br/>
             <!-- intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=http://test.com;S.android.intent.extra.SUBJECT=Test;end -->
             <a href="intent://#Intent;package=com.sunmi.sunmiqrcodescanner;action=com.summi.scan.START_SCAN;scheme=com.summi.scan;type=text/plain;end">Intent Link 2</a>
             <br/>
+            <br/>
             <a href="intent://#Intent;action=START_SCAN;scheme=com.summi.scan;package=com.sunmi.sunmiqrcodescanner;type=text/plain;end">Intent Link 3</a>
             <br/>
-            <a href="intent://#Intent;package=com.sunmi.sunmiqrcodescanner;action=START_SCAN;type=text/plain;end">Intent Link 3</a>
             <br/>
             <a href="intent://#Intent;package=com.sunmi.sunmiqrcodescanner;action=START_SCAN;type=text/plain;com.summi.scan.extra.PLAY_SOUND=true;end">Intent Link with extras</a> 
+            <br/>
+            <br/>
+            <a href="intent://#Intent;action=START_SCAN;package=com.summi.scan;type=text/plain;end">Link 4</a>
         </div>
         <script type="text/javascript">
-            document.getElementById('active-scanner').addEventListener("click", function() {
-                var intent = new Intent({"action":""})
-            })
+            console.log(
+                navigator.getInstalledRelatedApps
+            );
         </script>
     </body>
 </html>

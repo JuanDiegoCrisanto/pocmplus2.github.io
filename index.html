@@ -10,6 +10,8 @@
                     <input type="text" id="text-input"/>
                     <br/>
                     <input type="submit" value="OK">
+                    <br/>
+                    <p id="form-action-result"></p>
                 </form>
             </fieldset>
         </div>
@@ -32,12 +34,21 @@
             <button id="button-test-scan">Test scan programatically</button>
         </div>
         <script type="text/javascript">
+            function clearResult(){
+                document.getElementById('form-action-result').innerHTML = "";
+            }
+            
+            function showResult(eanCode){
+                document.getElementById('form-action-result').innerHTML = "Buscando el producto con código ean: " + eanCode;
+            }
+
             document.getElementById('form-to-test-pistol').addEventListener(
                 "submit",
                 function(e){
                     e.preventDefault();
+                    clearResult();
                     let value = document.getElementById('text-input').value;
-                    alert("Buscando: " + value);
+                    showResult(value);
                 },
                 false
             );

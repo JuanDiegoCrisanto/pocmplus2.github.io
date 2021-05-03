@@ -5,8 +5,16 @@
     </head>
     <body>
         <div>
+            <fieldset>
+                <form id="form-to-test-pistol">
+                    <input type="text" id="text-input"/>
+                    <br/>
+                    <input type="submit" value="OK">
+                </form>
+            </fieldset>
+        </div>
+        <div>
             <!-- intent://#Intent;action=android.intent.action.SEND;type=text/plain;S.android.intent.extra.TEXT=http://test.com;S.android.intent.extra.SUBJECT=Test;end -->
-            <input type="text" id="scanned-value"/>
             <br/>
             <br/>
             <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"> Sample Take a QR code </a>
@@ -24,6 +32,16 @@
             <button id="button-test-scan">Test scan programatically</button>
         </div>
         <script type="text/javascript">
+            document.getElementById('form-to-test-pistol').addEventListener(
+                "submit",
+                function(e){
+                    e.preventDefault();
+                    let value = document.getElementById('text-input').value;
+                    alert("Buscando: " + value);
+                },
+                false
+            );
+
             document.getElementById('button-test-scan').addEventListener(
                 "click",
                 function(){

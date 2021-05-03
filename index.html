@@ -5,7 +5,15 @@
     </head>
     <body>
         <div>
-            <button>Test Intent</button>
+            <input type="text" id="scanned-value"/>
+            <button type="button" id="active-scanner">Activar Scanner</button>
+            <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"> Sample Take a QR code </a>
+            <a href="intent://scan/#Intent;scheme=com.summi.scan;package=com.sunmi.sunmiqrcodescanner;end">Intent Link</a>
         </div>
+        <script type="text/javascript">
+            document.getElementById('active-scanner').addEventListener("click", function() {
+                var intent = new Intent({"action":""})
+            })
+        </script>
     </body>
 </html>

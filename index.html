@@ -27,10 +27,12 @@
             document.getElementById('button-test-scan').addEventListener(
                 "click",
                 function(){
-                    var intent = new Intent({
+                    var intent = new window.WebKitIntent({
                         "action":"com.google.zxing.client.android.SCAN",
-                        "type":"text/plain"
+                        "type":"text/plain",
+                        "data": null
                     });
+                    intent.setPackage("com.google.zxing.client.android");
                     navigator.startActivity(intent, putDataOnTextField)
                 },
                 false

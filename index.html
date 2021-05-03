@@ -21,11 +21,23 @@
             <a href="intent://scan/#Intent;scheme=com.summi.scan;package=com.sunmi.sunmiqrcodescanner;end">Intent Link 1</a>
             <br/>
             <br/>
+            <button id="button-test-scan">Test scan programatically</button>
         </div>
         <script type="text/javascript">
-            console.log(
-                navigator.getInstalledRelatedApps
+            document.getElementById('button-test-scan').addEventListener(
+                "click",
+                function(){
+                    var intent = new Intent({
+                        "action":"com.google.zxing.client.android.SCAN",
+                        "type":"text/plain"
+                    });
+                    navigator.startActivity(intent, putDataOnTextField)
+                },
+                false
             );
+            function putDataOnTextField(data) {
+                document.getElementById('scanned-value').value(data);
+            }
         </script>
     </body>
 </html>
